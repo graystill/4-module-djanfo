@@ -8,3 +8,20 @@ def index(request):
 
 def top_sellers(request):
     return render(request, 'top_sellers.html')
+
+
+def advertisement_post(request):
+    return render(request, 'advertisement_post')
+
+
+def register(request):
+    return render(request, 'register')
+
+
+def login(request):
+    return render(request, 'login')
+
+
+def profile(request):
+    return render(request, 'profile')
+
