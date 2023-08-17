@@ -1,3 +1,6 @@
+from django.conf import settings
+from django.conf.urls.static import static
+
 """
 URL configuration for WebAdv project.
 
@@ -23,3 +26,6 @@ urlpatterns = [
     path('lesson_4', include('app_lesson_4.urls')),
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
