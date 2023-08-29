@@ -15,7 +15,7 @@
 <body>
   <ul class="nav nav-pills sticky-top bg-white nav-fill">
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="{% url 'main-page' %}">
+      <a class="nav-link " aria-current="page" href="{% url 'main-page' %}">
         <span style="font-weight: bold;">Главная</span>
       </a>
     </li>
@@ -28,6 +28,7 @@
         <span style="font-weight: bold;">Разместить объявление</span>
       </a>
     </li>
+    {% if not user.is_authenticated %}
     <li class="nav-item">
       <a class="nav-link" href="{% url 'register' %}">
         <span style="font-weight: bold;">Регистрация</span>
@@ -37,6 +38,7 @@
       <a class="nav-link" href="{% url 'login' %}">
         <span style="font-weight: bold;">Войти</span>
       </a>
+      {% else %}
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{% url 'profile' %}">
@@ -44,11 +46,12 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{% url 'logout' %}">
         <span style="font-weight: bold;">Выйти</span>
       </a>
     </li>
   </ul>
+  {% endif %}
 {% block content %}
 {% endblock content %}
 
